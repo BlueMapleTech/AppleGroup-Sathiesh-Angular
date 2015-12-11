@@ -1,0 +1,44 @@
+<div ng-controller="LoginController as loginCtrl">
+	<div class="col-sm-offset-5">
+		<h1>Login Form</h1>
+	</div><br/><br/>
+	<form class="form-horizontal"name="loginForm" role="form" ng-submit="loginCtrl.performLogin()" novalidate="novalidate">
+		<div class="col-md-8">
+			<div class="form group">
+			<label class="col-sm-6 control-label" for="emailAddress">EmailAddress: </label>
+			<div class="col-sm-6">
+				<input type="text" name="loginCtrl.user.emailAddress"
+					ng-model="loginCtrl.userAuthentication.emailAddress" class="form-control"
+					ng-pattern="/^[a-zA-Z0-9._%+-]+@[a-z-A-Z0-9.-]+\.[a-zA-Z]{2,4}$/"
+					placeholder="Email Address" required><span
+					style="color: red"
+					ng-show="loginForm.emailAddress.$dirty && loginForm.emailAddress.$invalid">
+					<span ng-show="loginForm.emailAddress.$error.required">Email
+						address is required.</span> <span
+					ng-show="loginForm.emailAddress.$error.pattern">Invalid
+						email address.</span>
+				</span></div></div>
+			</div><br/><br/><br/>
+			<div class="col-md-8">
+			<div class="form group">
+			<label class="col-sm-6 control-label" for="password">Password: </label>
+			<div class="col-sm-6">
+				
+				<input type="text" name="password" ng-model="loginCtrl.userAuthentication.password"
+					class="form-control" ng-pattern="" placeholder="Password"
+					required="required"><span style="color: red"
+					ng-show="loginForm.passwordAddress.$dirty && loginForm.password.$invalid">
+					<span ng-show="loginForm.password.$error.required">Password
+						is required.</span>
+				</span>
+			</div></div></div>
+			<br/><br/><br/>
+			<div class="form-group">
+				<div class="col-sm-offset-4 col-sm-6">
+					<input type="submit" class="btn btn-primary" value="Login">
+					<input type="button"ng-dblclick="loginCtrl.doSignup()"class="btn btn-primary"value="SignUp">
+					</div>
+			</div>
+		</div>
+	</form>
+</div>

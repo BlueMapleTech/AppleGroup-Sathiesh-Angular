@@ -1,0 +1,38 @@
+
+  <div ng-controller="ListController as personList">
+  <h1>UserList DashBoard</h1>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>user_id</th>
+				<th>first_name</th>
+				<th>last_name</th>
+				<th>email_address</th>
+				<th>password</th>
+				<th>Confirm_Password</th>
+				<th>moblie_number</th>
+				<th>address</th>
+				<th>Delete</th>
+				<th>Update</th>
+			</tr>
+		</thead>
+		<tbody>
+			
+				<tr ng-repeat="m in user">
+					<td>{{m.userId}}</td>
+					<td>{{m.firstName}}</td>
+					<td>{{m.lastName}} </td>
+					<td>{{m.emailAddress}} </td>
+					<td>{{m.password}} </td>
+					<td>{{m.confirmPassword}}</td>
+					<td>{{m.mobileNumber}}</td>
+					<td>{{m.address}} </td>
+					<td><a class="btn btn-primary" ng-click="Delete(m.userId)"/>Delete</td>
+				    <td><a class="btn btn-primary" ng-click="update(m.userId)"/>Update</td>
+				
+					
+				</tr>
+			
+		</tbody>
+	</table>
+</div>
