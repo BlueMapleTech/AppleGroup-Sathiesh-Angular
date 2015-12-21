@@ -1,0 +1,131 @@
+<div ng-controller="UpdateController as updateCtrl">
+	<h1 class="col-sm-offset-5">Update Form</h1>
+	<form class="form-horizontal" role="form" name="updateForm"ng-submit="update()">
+		<div class="form-group">
+			<label class="col-sm-4 control-label" for="firstname">First
+				Name: </label>
+			<div class="col-sm-4">
+				<input type="text" name="firstname" ng-model="user.firstName"
+					class="form-control" placeholder="First Name" ng-minlength="2"
+					ng-maxlength="15" required><span style="color: red"
+					ng-show="updateForm.firstname.$dirty && updateForm.firstname.$invalid">
+					<span ng-show="updateForm.firstname.$error.required">First
+						name is required.</span> <span
+					ng-show="updateForm.firstname.$error.minlength">First name
+						should have minimum 2 characters.</span> <span
+					ng-show="updateForm.firstname.$error.maxlength">First name
+						should have maximum of 15 characters.</span>
+				</span>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-4 control-label" for="lastname">Last
+				Name: </label>
+			<div class="col-sm-4">
+				<input type="text" name="lastname" ng-model="user.lastName"
+					class="form-control" placeholder="Last Name" ng-minlength="2"
+					ng-maxlength="15" required><span style="color: red"
+					ng-show="updateForm.lastname.$dirty && updateForm.lastname.$invalid">
+					<span ng-show="updateForm.lastname.$error.required">Last
+						name is required.</span> <span
+					ng-show="updateForm.lastname.$error.minlength">Last name
+						should have minimum 2 characters.</span> <span
+					ng-show="updateForm.lastname.$error.maxlength">Last name
+						should have maximum of 15 characters.</span>
+				</span>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-4 control-label" for="emailAddress">Email
+				Address: </label>
+			<div class="col-sm-4">
+				<input type="email" name="emailAddress" class="form-control"
+					placeholder="Email Address"ng-disabled="true"
+					ng-pattern="/^[a-zA-Z0-9._%+-]+@[a-z-A-Z0-9.-]+\.[a-zA-Z]{2,4}$/"
+					ng-model="user.emailAddress" required /> <span style="color: red"
+					ng-show="updateForm.emailAddress.$dirty && updateForm.emailAddress.$invalid">
+					<span ng-show="updateForm.emailAddress.$error.required">Email
+						address is required.</span> <span
+					ng-show="updateForm.emailAddress.$error.pattern">Invalid
+						email address.</span>
+				</span>
+			<!--  <span style="color: red"
+					ng-show="updateForm.emailAddress.$error.minlength" class="error">Email
+						address is too short!</span> <span style="color: red"
+					ng-show="updateForm.emailAddress.$error.maxlength" class="error">Email
+						address is too long!</span> --> 
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-4 control-label" for="password">Password:
+			</label>
+			<div class="col-sm-4">
+				<input type="password" name="password" class="form-control"
+					ng-model="user.password" placeholder="Password" ng-minlength="5"
+					ng-maxlength="15" required><span style="color: red"
+					ng-show="updateForm.password.$dirty && updateForm.password.$invalid">
+					<span ng-show="updateForm.password.$error.required">Password
+						is required.</span> <span ng-show="updateForm.password.$error.minlength">Password
+						should have minimum 5 characters.</span> <span
+					ng-show="updateForm.password.$error.maxlength">Password
+						should have maximum of 15 characters.</span>
+				</span>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-4 control-label" for="confirmPassword">Confirm
+				Password: </label>
+			<div class="col-sm-4">
+				<input type="password" name="confirmPassword" class="form-control"
+					ng-model="user.confirmPassword" placeholder="Confirm Password"
+					ng-minlength="5" ng-maxlength="15" required ><span
+					style="color: red"
+					ng-show="updateForm.confirmPassword.$dirty && updateForm.confirmPassword.$invalid">
+					<span ng-show="updateForm.confirmPassword.$error.required">Confirm
+						Password is required.</span> <span
+					ng-show="updateForm.confirmPassword.$error.minlength">Confirm
+						Password should have minimum 5 characters.</span> <span
+					ng-show="updateForm.confirmPassword.$error.maxlength">Confirm
+						Password should have maximum of 15 characters.</span>
+				</span>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-4 control-label" for="mobileNumber">Mobile
+				Number: </label>
+			<div class="col-sm-4">
+				<input type="tel" name="mobileNumber" class="form-control"
+					ng-minlength="10" ng-maxlength="10" ng-model="user.mobileNumber"
+					placeholder="Mobile Number" required />
+			</div>
+			<span style="color: red"
+				ng-show="updateForm.mobileNumber.$dirty && updateForm.mobileNumber.$invalid">
+				<span ng-show="updateForm.phonenumber.$error.required">Mobile
+					Number is required.</span><span
+				ng-show="updateForm.mobileNumber.$error.minlength">Mobile
+					Number should have 10 numbers.</span> <span
+				ng-show="updateForm.mobileNumber.$error.maxlength">Mobile
+					Number should have maximum of 10 numbers.</span>
+			</span>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-4 control-label" for="address">Address:
+			</label>
+			<div class="col-sm-4">
+				<input type="text" name="address" class="form-control"
+					ng-model="user.address" placeholder="Address" required> <span
+					style="color: red"
+					ng-show="updateForm.address.$dirty && updateForm.address.$invalid">
+					<span ng-show="updateForm.address.$error.required">Address
+						is required.</span>
+				</span>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-4 col-sm-6">
+				<input type="submit" ng-disabled="updateForm.$invalid||updateForm.$pending" class="btn btn-primary" value="Update">
+					</div>
+		</div>
+	</form>
+</div>
+
